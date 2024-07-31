@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load replace_1 %}
+{% block title %}Students - {{ object.register_no }}{% endblock %}
+{% block content %}
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            {% if object.profile_image %}
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="{{ object.profile_image.url }}">
+            </div>
+            {% endif %}
+            <div class="d-flex flex-column align-items-center mt-3">
+                <a href="{% url 'student_update' object.register_no %}" class="btn btn-outline-success my-2">Update</a>
+                <a href="{% url 'student_delete' object.register_no %}" class="btn btn-outline-danger my-2">Delete</a>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-right">Profile Settings</h2>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Name</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.name }}" readonly>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Register No</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.register_no }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Batch</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.batch }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Degree</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.degree }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Branch</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.branch }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>ON/OFF/CAMPUS</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.On_Off_Campus }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Company</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.Company }}" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"><strong>Cost to Company</strong></label>
+                        <input type="text" class="form-control-plaintext" value="{{ object.Cost_To_Company }}" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

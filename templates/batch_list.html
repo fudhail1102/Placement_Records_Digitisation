@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}batches{% endblock %}
+{% block content%}
+
+
+<div class="list_container">
+    <div class="whyy">
+    <a href="{% url 'student_create'%}" class="btn btn-outline-success my-2 my-sm-0 ">Add Student</a>
+    </div>
+    {% if student_list%}
+        <table class ="table table-hover" >
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope = "col">Batch</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for batch in student_list%}
+                        <tr>
+                            <td> <a href="{% url 'department_list' batch%}">Batch - {{batch}}</a></td>                    
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No batch to display</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Students - {{ batch }}{% endblock %}
+{% block content %}
+{% load replace_1 %}
+
+<div class="list_container">
+    <form method="get">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="min_ctc">Minimum Offer</label>
+                <input type="number" name="min_ctc" id="min_ctc" class="form-control" placeholder="Minimum CTC" value="{{ request.GET.min_ctc }}">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="max_ctc">Maximum Offer</label>
+                <input type="number" name="max_ctc" id="max_ctc" class="form-control" placeholder="Maximum CTC" value="{{ request.GET.max_ctc }}">
+            </div>
+            <div class="form-group col-md-3 align-self-end">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+    </form>
+
+    {% if company_list %}
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">
+                        Placed 
+                        <a href="?{% if request.GET.min_ctc %}min_ctc={{ request.GET.min_ctc }}&{% endif %}{% if request.GET.max_ctc %}max_ctc={{ request.GET.max_ctc }}&{% endif %}sort=placed_asc" class="btn btn-link btn-sm">▲</a>
+                        <a href="?{% if request.GET.min_ctc %}min_ctc={{ request.GET.min_ctc }}&{% endif %}{% if request.GET.max_ctc %}max_ctc={{ request.GET.max_ctc }}&{% endif %}sort=placed_desc" class="btn btn-link btn-sm">▼</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in company_list %}
+                    <tr>
+                        <td> <a href="{% url 'company_detail' company.Company %}">{{ company.Company }}</a></td>
+                        <td> <a href="{% url 'company_detail' company.Company %}">{{ company.student_count }}</a></td> 
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No companies to display</p>
+    {% endif %}
+</div>
+{% endblock %}

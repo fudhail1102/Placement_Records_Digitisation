@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Students - {{object.register_no}{% endblock %}
+{% block content%}
+    <div class="container student_create_form">
+        <h2>Update Student</h2>
+        <form action="" method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form | crispy}}
+            <button type = 'submit' class="btn btn-outline-success my-2 my-sm-0">Update</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Students - {{ batch }}{% endblock %}
+{% block content %}
+{% load replace_1 %}
+
+<div class="list_container">
+    {% if department_list %}
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Branch</th>
+                    <th scope="col">Placed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in department_list %}
+                    <tr>
+                        <td><a href="{% url 'student_list' batch=department.batch branch=department.branch %}">{{ department.branch }}</a></td>
+                        <td><a href="{% url 'student_list' batch=department.batch branch=department.branch %}">{{ department.student_count }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No branches to display</p>
+    {% endif %}
+</div>
+{% endblock %}

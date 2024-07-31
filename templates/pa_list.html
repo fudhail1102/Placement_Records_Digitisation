@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Students - {{batch}}{% endblock %}
+{% block content%}
+{% load replace_1 %}
+
+<div class="list_container">
+    <div class="whyy">
+        <a href="{% url 'placement_create' did%}" class="btn btn-outline-success my-2 my-sm-0 ">Add Placement Activity</a>
+    </div>
+    {% if placementactivity_list%}
+        <table class ="table table-hover" >
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope = "col">Company</th>
+                    <th scope="col">Attended Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for placementa in placementactivity_list%}
+                
+                        <tr>
+                            <td> <a href="{% url 'placement_detail' digital_id=placementa.student.digital_id pk=placementa.id%}">{{placementa.company.name}}</a></td> 
+                            <td> <a href="{% url 'placement_detail' digital_id=placementa.student.digital_id  pk=placementa.id%}">{{placementa.attended_date}}</a></td>                     
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No students to display</p>
+    {% endif %}
+</div>
+{% endblock %}

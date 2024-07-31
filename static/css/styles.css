@@ -1,0 +1,60 @@
+body {
+    background-image: url('../images/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #e0e0e0;
+}
+
+
+.navbar, .footer {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #e0e0e0;
+}
+
+.login_form{
+    width: 320px;
+    margin-top: 60px;
+}
+
+.list_container{
+    margin: 100px;
+    margin-top: 65px;
+
+}
+
+.student_create_form{
+    width: 320px;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.create_space{
+    margin-left: 10px;
+    margin-right: 30px;
+    
+}
+
+
+.whyy{
+    margin-bottom: 50px;
+}
+
+.navbar-custom {
+    background-color: #0066B0; /* Bootstrap primary blue color */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .navbar-toggler-icon {
+    color: white; /* Ensuring text and toggler icon are visible */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #dfe6e9; /* Adding a hover effect */
+}
+
+.navbar-custom-bg {
+    background-color: #0066B0; /* Bootstrap primary blue color */
+}

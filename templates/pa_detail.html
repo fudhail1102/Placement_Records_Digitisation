@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load replace_1 %}
+{% block title %}Placement Activity{% endblock %}
+{% block content%}
+ 
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                    <a href="{% url 'company_update' object.id%}" class="btn btn-outline-success my-2 my-sm-0">Update</a>
+                    <a href="{% url 'company_delete' object.id%}" class="btn btn-outline-danger my-2 my-sm-0">Delete</a>
+
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="text-right">Info</h2>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Student</label><input type="text" class="form-control-plaintext"  value="{{object.student.name}}"></div>
+                        <div class="col-md-12"><label class="labels">Attended Date</label><input type="text" class="form-control-plaintext"  value="{{object.attended_date}}"></div>
+                        <div class="col-md-12"><label class="labels">Company</label><input type="text" class="form-control-plaintext"  value="{{object.company.name}}"></div>
+                        <div class="col-md-12"><label class="labels">info</label><input type="text" class="form-control-plaintext"  value="{{object.info}}"></div>
+                        <div class="col-md-12"><label class="labels">Result</label><input type="text" class="form-control-plaintext" value="{{object.result}}"></div>
+                        <div class="col-md-12"><label class="labels">Result Date</label><input type="text" class="form-control-plaintext" value="{{object.result_date}}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

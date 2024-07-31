@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Students - {{batch}}{% endblock %}
+{% block content%}
+{% load replace_1 %}
+
+<div class="list_container">
+    {% if student_list%}
+        <table class ="table table-hover" >
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope ="col">Register No</th>
+                    <th scope="col">Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for student in student_list%}
+                
+                        <tr>
+                            <td> <a href="{% url 'student_detail' student.register_no %}">{{student.name}}</a></td> 
+                            <td> <a href="{% url 'student_detail' student.register_no %}">{{student.register_no}}</a></td> 
+                            <td> <a href="{% url 'company_detail' student.Company %}">{{student.Company}}</a></td> 
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No students to display</p>
+    {% endif %}
+</div>
+{% endblock %}
