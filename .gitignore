@@ -8,3 +8,4 @@ __pycache__/
 run.sh
 readme.txt
 clear_db.sh
+db.sqlite3
